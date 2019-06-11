@@ -184,9 +184,9 @@ mkdir -p reports/"$PLATFORM$API"
 
 appium_start
 
-if [ "$PLATFORM" == "android" ]; then
-      wait_android_emulator
-fi
+# if [ "$PLATFORM" == "android" ]; then
+#       wait_android_emulator
+# fi
 
 sleep 10
 
