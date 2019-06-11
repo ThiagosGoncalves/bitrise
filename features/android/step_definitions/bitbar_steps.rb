@@ -1,5 +1,8 @@
 Dado("que o app esteja aberto") do
   @home = HomeBitbar.new 
+  @home.button_ok.click
+rescue
+  nil
 end
 
 Quando("escolher a opção {string}") do |string|

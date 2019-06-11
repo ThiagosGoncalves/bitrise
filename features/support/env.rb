@@ -46,6 +46,7 @@ platformversion = case
                   end
 
 androidport = 6 if $appiumtxt.include? '26'
+androidport = 6 if $appiumtxt.include? '28'
 androidport = 7 if $appiumtxt.include? '19'
 iosport = 9 if $appiumtxt.include? '10'
 iosport = 8 if $appiumtxt.include? '12'
@@ -93,7 +94,7 @@ opts = if ($appiumtxt.include? 'ios') || ($appiumtxt.include? 'iPhone')
 
 opts[:caps]['udid'] = "emulator-55#{androidport}#{port[test_batch_id.to_i]}" if paralelo == 'true' && $appiumtxt.include?('android')
 opts[:caps]['systemPort'] = androidport_3.to_i if paralelo == 'true' && $appiumtxt.include?('android')
-# opts[:caps]['automationName'] = 'UiAutomator2' if $appiumtxt.include?('26')
+#  opts[:caps]['automationName'] = 'UiAutomator2' if $appiumtxt.include?('26')
 opts[:caps]['wdaLocalPort'] = "#{iosport}#{test_batch_id}00".to_i if paralelo == 'true' && $appiumtxt.include?('ios')
 
 puts opts

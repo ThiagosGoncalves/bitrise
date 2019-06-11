@@ -69,6 +69,10 @@ function environments(){
             api='system-images;android-26;google_apis;x86_64'
             aabi=google_apis/x86_64
             portemulator="6"
+      elif [ "$API" == "28" ]; then
+            api='system-images;android-28;google_apis;x86'
+            aabi=google_apis/x86
+            portemulator="6"
       else
             echo "Versão de sistema não cadastrada"
       fi
