@@ -6,7 +6,7 @@ end
 After do |scenario|
   if scenario.failed?
     encoded_img = $imgreport
-    encoded_img = driver.screenshot_as(:base64) if $imgreport.nil?
+    encoded_img = driver.save_viewport_screenshot(:base64) if $imgreport.nil?
     embed("data:image/png;base64,#{encoded_img}", 'image/png')
   end
   $driver.driver_quit
@@ -15,7 +15,7 @@ end
 After('@Reinstall') do |scenario|
   if scenario.failed?
     encoded_img = $imgreport
-    encoded_img = driver.screenshot_as(:base64) if $imgreport.nil?
+    encoded_img = driver.save_viewport_screenshot(:base64) if $imgreport.nil?
     embed("data:image/png;base64,#{encoded_img}", 'image/png')
   end
   $driver.reset

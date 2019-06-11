@@ -1,4 +1,4 @@
-require_relative '../../modules/utils'
+# require_relative '../../modules/utils'
 class NavegacaoTabbar < Utilites
     def tocar_tabbar(tabbar)
         esperar_por(30) { find_element(:id, 'tabBar').find_element(:xpath, "//*[@text='#{tabbar}']").click }

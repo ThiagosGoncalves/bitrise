@@ -65,7 +65,7 @@ opts = if ($appiumtxt.include? 'ios') || ($appiumtxt.include? 'iPhone')
               'platformName' => plataforma.to_s.tr('0-9', ''),
               'platformVersion' => platformversion.to_s,
               'deviceName' => "#{$appiumtxt}#{zero}",
-              'app' => "#{$bandeira}/#{appios}.app",
+              # 'app' => "#{$bandeira}/#{appios}.app",
               'automationName' => 'XCUITest',
               'noReset' => 'true',
               'fullReset' => 'false',
@@ -80,18 +80,20 @@ opts = if ($appiumtxt.include? 'ios') || ($appiumtxt.include? 'iPhone')
             caps: {
               'platformName' => $appiumtxt.to_s.tr('0-9', ''),
               'deviceName' => $appiumtxt.to_s,
-              'app' => "../apk/#{$bandeira}/#{$branch}/app-#{$bandeira}-#{$branch}.apk",
+              # 'app' => "../apk/#{$bandeira}/#{$branch}/app-#{$bandeira}-#{$branch}.apk",
+              'app' => "/Users/t.simoes.goncalves/projetinhos/bitrise/app/BitbarSampleApp.apk",
               'noReset' => 'true',
               'fullReset' => 'false',
               'autoGrantPermissions' => 'true',
-              'appActivity' => 'home.HomeActivity'
+              # 'appActivity' => 'home.HomeActivity'
+              'automationName' => 'UiAutomator2'
             }
           }
        end
 
 opts[:caps]['udid'] = "emulator-55#{androidport}#{port[test_batch_id.to_i]}" if paralelo == 'true' && $appiumtxt.include?('android')
 opts[:caps]['systemPort'] = androidport_3.to_i if paralelo == 'true' && $appiumtxt.include?('android')
-opts[:caps]['automationName'] = 'UiAutomator2' if $appiumtxt.include?('26')
+# opts[:caps]['automationName'] = 'UiAutomator2' if $appiumtxt.include?('26')
 opts[:caps]['wdaLocalPort'] = "#{iosport}#{test_batch_id}00".to_i if paralelo == 'true' && $appiumtxt.include?('ios')
 
 puts opts

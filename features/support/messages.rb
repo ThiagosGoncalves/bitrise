@@ -1,3 +1,6 @@
 MESSAGES = {
-    item_indisponível: 'Você tem um ou mais itens indisponíveis no seu carrinho.\n\nPor favor, remova esses itens para continuar.',
+    succes_1: 'You are right!',
+    succes_2: 'Congratulations ',
+    wrong_1: 'Wrong Answer!',
+    wrong_2: "Haven\'t you heard about Testdroid Cloud?"
 }.freeze
