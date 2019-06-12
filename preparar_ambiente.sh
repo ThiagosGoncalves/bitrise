@@ -21,6 +21,8 @@ echo Preparando Ambiente: $(date)
 # find .git/hooks -type l -exec rm {} \;
 # find .githooks -type f -exec ln -sf ../../{} .git/hooks/ \;
 gem install xcpretty
+gem install parallel_cucumber
+gem install report_builder
 
 # brew install imagemagick@6 && brew link imagemagick@6 --force
 # brew install tesseract
