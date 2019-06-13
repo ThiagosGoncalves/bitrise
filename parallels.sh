@@ -176,17 +176,17 @@ while [ $i -lt $adicional ]; do
       let i=$i+1
 done
 
-if [ "$PLATFORM" == "android" ]; then
-      start_android_emulator
-fi
+# if [ "$PLATFORM" == "android" ]; then
+#       start_android_emulator
+# fi
 
 mkdir -p reports/"$PLATFORM$API"
 
 appium_start
 
-# if [ "$PLATFORM" == "android" ]; then
-#       wait_android_emulator
-# fi
+if [ "$PLATFORM" == "android" ]; then
+      wait_android_emulator
+fi
 
 sleep 10
 
@@ -196,12 +196,12 @@ generate_report
 
 appium_stop
 
-i1=0
-while [ $i1 -lt $adicional ]; do
-      if [ "$PLATFORM" == "ios" ]; then
-          delete_ios_emulator
-      else
-          delete_android_emulator 
-      fi
-      let i1=$i1+1
-done
+# i1=0
+# while [ $i1 -lt $adicional ]; do
+#       if [ "$PLATFORM" == "ios" ]; then
+#           delete_ios_emulator
+#       else
+#           delete_android_emulator 
+#       fi
+#       let i1=$i1+1
+# done
