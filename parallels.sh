@@ -176,9 +176,9 @@ while [ $i -lt $adicional ]; do
       let i=$i+1
 done
 
-# if [ "$PLATFORM" == "android" ]; then
-#       start_android_emulator
-# fi
+if [ "$PLATFORM" == "android" ]; then
+      start_android_emulator
+fi
 
 mkdir -p reports/"$PLATFORM$API"
 
