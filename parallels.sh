@@ -82,7 +82,7 @@ function environments(){
 # Skin 1: J5API19 WXGA  2: Nexus_5X
 function create_android_emulator(){
       if [ "$SKIN" == "1" ]; then
-            skin=J5API19
+            skin=10
       else
             skin=10
       fi
