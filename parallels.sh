@@ -107,7 +107,7 @@ function create_android_emulator(){
       #       while [ "`adb -s emulator-55$portemulator$port2 shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
       #       let i5=$i5+1
       # done
-      sleep 30000
+      sleep 30
  }
 
 # create iOS Emulators
