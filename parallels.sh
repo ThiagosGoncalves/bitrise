@@ -86,7 +86,7 @@ function create_android_emulator(){
       else
             skin=10
       fi
-      $ANDROID_HOME/tools/bin/avdmanager -s --silent create avd --force --name ${names[$i]} --abi $aabi --package $api --device $skin
+      avdmanager create avd --force --name ${names[$i]} --abi $aabi --package $api --device $skin
 }
 
 # start Android Emulators
