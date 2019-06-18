@@ -181,6 +181,8 @@ done
 
 if [ "$PLATFORM" == "android" ]; then
       start_android_emulator
+      
+      emulator -list-avds
 fi
 
 mkdir -p reports/"$PLATFORM$API"
