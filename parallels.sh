@@ -66,8 +66,8 @@ function environments(){
             aabi=google_apis/x86
             portemulator="7"
       elif [ "$API" == "26" ]; then
-            api='system-images;android-26;google_apis;x86_64'
-            aabi=google_apis/x86_64
+            api='system-images;android-26;google_apis;x86'
+            aabi=google_apis/x86
             portemulator="6"
       elif [ "$API" == "28" ]; then
             api='system-images;android-28;google_apis;x86'
@@ -100,13 +100,14 @@ function create_android_emulator(){
       done
  }
  function wait_android_emulator(){
-       i5=0
-       for device in $(emulator -list-avds | GREP $name)
-      do
-            port2=$(($i5*2))
-            while [ "`adb -s emulator-55$portemulator$port2 shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
-            let i5=$i5+1
-      done
+      #  i5=0
+      #  for device in $(emulator -list-avds | GREP $name)
+      # do
+      #       port2=$(($i5*2))
+      #       while [ "`adb -s emulator-55$portemulator$port2 shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
+      #       let i5=$i5+1
+      # done
+      sleep 30000
  }
 
 # create iOS Emulators
