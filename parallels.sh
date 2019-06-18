@@ -86,7 +86,8 @@ function create_android_emulator(){
       else
             skin=10
       fi
-      avdmanager create avd --force --name ${names[$i]} --abi $aabi --package $api --device $skin
+      # avdmanager create avd --force --name ${names[$i]} --abi $aabi --package $api --device $skin
+      avdmanager create avd --name teste --abi google_apis/x86 --package "system-images;android-28;google_apis;x86" --device 10
 }
 
 # start Android Emulators
@@ -100,14 +101,15 @@ function create_android_emulator(){
       done
  }
  function wait_android_emulator(){
-      #  i5=0
-      #  for device in $(emulator -list-avds | GREP $name)
-      # do
-      #       port2=$(($i5*2))
-      #       while [ "`adb -s emulator-55$portemulator$port2 shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
-      #       let i5=$i5+1
-      # done
-      sleep 30
+       i5=0
+       for device in $(emulator -list-avds | GREP $name)
+      do
+            port2=$(($i5*2))
+            # while [ "`adb -s emulator-55$portemulator$port2 shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
+            # let i5=$i5+1
+            while [ "`adb -s emulator-5560 shell getprop sys.boot_completed | tr -d '\r' `" != "1" ] ; do sleep 1; done
+            let i5=$i5+1
+      done
  }
 
 # create iOS Emulators
