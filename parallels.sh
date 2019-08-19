@@ -195,11 +195,21 @@ fi
 
 sleep 10
 
-start_cucumber_parallel
-
+< <(start_cucumber_parallel) | 
+while read -r line 
+do 
+      if [$line=="cucumbers Failed"]; then
+      code=1
+      fi
+done
 generate_report
 
 appium_stop
+
+if [$code==1]; then
+      exit 1
+fi
+
 
 # i1=0
 # while [ $i1 -lt $adicional ]; do
